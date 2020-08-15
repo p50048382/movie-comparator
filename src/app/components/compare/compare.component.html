@@ -1,0 +1,67 @@
+
+<!-- <pre class="text-white">{{movies[0] |json}}</pre> -->
+<mat-card class="w-100">
+    <!-- <mat-card-header>
+        <mat-card-title>title</mat-card-title>
+        <mat-card-subtitle>subtitle</mat-card-subtitle>
+    </mat-card-header> -->
+    <table class="table table-bordered table-striped table-responsive-sm" 
+        *ngFor="let movie of combinedMoviesForBinding ">
+        <tr >
+            <th>Movie Name</th>
+            <td style="background-color: #758baa;" class=" text-uppercase font-weight-bold text-white" >{{movie?.Title?.movie1 }}</td>
+            <td style="background-color: #758baa;" class=" text-uppercase font-weight-bold text-white">{{movie?.Title?.movie2 }}</td>
+        </tr>
+        <tr >
+            <th >IMDB Rating</th>
+            <td [ngClass]="{'bg-success':movie?.imdbRating?.movie1 >movie?.imdbRating?.movie2}">{{movie?.imdbRating?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.imdbRating?.movie1 <movie?.imdbRating?.movie2}" >{{movie?.imdbRating?.movie2}}</td>
+        </tr>
+        <tr >
+            <th>IMDB Upvotes</th>
+            <td [ngClass]="{'bg-success':movie?.imdbVotes?.movie1 >movie?.imdbVotes?.movie2}">{{movie?.imdbVotes?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.imdbVotes?.movie1 <movie?.imdbVotes?.movie2}">{{movie?.imdbVotes?.movie2}}</td>
+        </tr >
+        <tr >
+            <th>Awards</th>
+            <td [ngClass]="{'bg-success':movie?.AwardsWon?.movie1 >movie?.AwardsWon?.movie2}">{{movie?.AwardsWon?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.AwardsWon?.movie1 <movie?.AwardsWon?.movie2}">{{movie?.AwardsWon?.movie2}}</td>
+        </tr>
+        <tr >
+            <th>Nominations</th>
+            <td [ngClass]="{'bg-success':movie?.Nominations?.movie1 >movie?.Nominations?.movie2}">{{movie?.Nominations?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.Nominations?.movie1 <movie?.Nominations?.movie2}">{{movie?.Nominations?.movie2}}</td>
+        </tr>
+        <tr >
+            <th>Metascore</th>
+            <td [ngClass]="{'bg-success':movie?.Metascore?.movie1 >movie?.Metascore?.movie2}">{{movie?.Metascore?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.Metascore?.movie1 <movie?.Metascore?.movie2}">{{movie?.Metascore?.movie2}}</td>
+        </tr>
+        <tr >
+            <th>Internet Movie Database</th>
+            <td [ngClass]="{'bg-success':movie?.IMD?.movie1 >movie?.IMD?.movie2}">{{movie?.IMD?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.IMD?.movie1 <movie?.IMD?.movie2}">{{movie?.IMD?.movie2}}</td>
+        </tr>
+        <tr>
+            <th>Rotten Tomatoes</th>
+            <td [ngClass]="{'bg-success':movie?.RottenT?.movie1 >movie?.RottenT?.movie2}">{{movie?.RottenT?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.RottenT?.movie1 <movie?.RottenT?.movie2}">{{movie?.RottenT?.movie2}}</td>
+        </tr>
+        <tr >
+            <th>Metacritic</th>
+            <td [ngClass]="{'bg-success':movie?.Metacritic?.movie1 >movie?.Metacritic?.movie2}">{{movie?.Metacritic?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.Metacritic?.movie1 <movie?.Metacritic?.movie2}">{{movie?.Metacritic?.movie2}}</td>
+        </tr>
+        <tr >
+            <th>Runtime</th>
+            <td [ngClass]="{'bg-success':movie?.Runtime?.movie1 >movie?.Runtime?.movie2}">{{movie?.Runtime?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.Runtime?.movie1 <movie?.Runtime?.movie2}" >{{movie?.Runtime?.movie2}}</td>
+        </tr>
+        <tr >
+            <th>Year</th>
+            <td [ngClass]="{'bg-success':movie?.Year?.movie1 >movie?.Year?.movie2}">{{movie?.Year?.movie1}}</td>
+            <td [ngClass]="{'bg-success':movie?.Year?.movie1 <movie?.Year?.movie2}">{{movie?.Year?.movie2}}</td>
+        </tr>
+    </table>
+    
+</mat-card>

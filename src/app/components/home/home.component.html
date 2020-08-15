@@ -1,0 +1,32 @@
+<div class="container ">
+  <form class="w-100">
+    <div class="row" 
+     style="background-color:#344051;">
+      <app-form 
+      *ngFor="let card of cards;let i=index"
+      [card]='card'
+      [filteredOptions]='filteredOptions'
+      (movie)="newMovieSelected($event)"
+       class="col-md-6 col-lg-6 col-sm-12 center-elements mt-3 mb-2 ">
+      </app-form>
+    </div>
+    <div class="row" style="background-color:#344051;">
+      <app-details 
+      *ngFor="let movie of movies"
+      [movie]='movie'
+       class="col-md-6 col-lg-6 col-sm-12 center-elements mt-3 pb-3">
+      </app-details>
+    </div>
+    <!-- *ngIf="movies.length===2" -->
+    <div  class="row center-elements"  
+    style="background-color:#344051;"> 
+      <mat-slide-toggle [(checked)]="checked" labelPosition="before" (change)="toggleCompare($event)">
+       <span class="text-white">Compare</span> 
+      </mat-slide-toggle>
+    </div>
+    <div  class="row center-elements mb-5 pb-2"  
+    style="background-color:#344051;"> 
+      <app-compare *ngIf="doCompare && movies?.length>1" [movies]='movies' class="col-md-12 col-lg-12 col-sm-12 center-elements mt-3"></app-compare>
+    </div>
+  </form>
+</div>

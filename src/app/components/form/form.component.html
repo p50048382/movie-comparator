@@ -1,0 +1,25 @@
+    <mat-card class="w-100 p-0" >
+        <mat-card-header class="center-elements">
+            <mat-card-title class="m-1"> <mat-icon class="align-middle text-danger">slideshow</mat-icon> {{card.title}}</mat-card-title>
+        </mat-card-header>
+        <div class="example-form center-elements">
+         <mat-form-field class="example-full-width p-0">
+         <mat-label>{{card.label}}</mat-label>
+           <input type="text"
+                  [placeholder]="card.placeholder"
+                  aria-label="Number"
+                  matInput
+                  #input
+                  [formControl]="card.control"
+                  [matAutocomplete]="auto">  
+                  <button (click)="clearInput(input)" *ngIf="input.value.length>2" mat-icon-button matSuffix class="align-middle"><mat-icon>clear</mat-icon></button>
+           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+             <mat-option  style="height: 70px;" class="border" *ngFor="let option of filteredOptions |async" [value]="option.Title +' '+ '('+ option.Year +')'"
+             (onSelectionChange)="movieSelected(option)"
+             >
+             <img [src]="option.Poster" alt="option.Type" width="15%" height="100%"> {{option.Title}}({{option.Year}})
+             </mat-option>
+           </mat-autocomplete>
+         </mat-form-field>
+       </div>
+    </mat-card>
